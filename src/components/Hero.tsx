@@ -70,7 +70,7 @@ const Hero = () => {
 
         <div className="relative animate-slide-in-right">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl" />
-          <div className="relative aspect-square overflow-hidden border-2 border-primary/40">
+          <div className="relative aspect-[3/4] overflow-hidden border-2 border-primary/40">
             <img
               src={profileImage}
               alt="Surya Pratap Mallick"
