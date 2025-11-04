@@ -1,0 +1,137 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import { Mail, Phone, Github, Linkedin } from "lucide-react";
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success("Message sent successfully! I'll get back to you soon.");
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "suryapratapmallick0@gmail.com",
+      href: "mailto:suryapratapmallick0@gmail.com"
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+91-6372540936",
+      href: "tel:+916372540936"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "suryapratap14",
+      href: "https://github.com/suryapratap14"
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "surya-pratap-mallick",
+      href: "https://linkedin.com/in/surya-pratap-mallick"
+    }
+  ];
+
+  return (
+    <section id="contact" className="py-20 px-6">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+            Get In <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Touch</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Want to reach out about a project, collaboration, or just want to say friendly hello?
+          </p>
+          <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-4" />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 className="text-2xl font-serif font-semibold mb-6">Let's Connect</h3>
+            <p className="text-muted-foreground mb-8">
+              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+
+            <div className="space-y-4">
+              {contactInfo.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={index}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all group"
+                  >
+                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">{item.label}</p>
+                      <p className="font-medium">{item.value}</p>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          <div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <Input
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                  className="bg-card border-border focus:border-primary"
+                />
+              </div>
+              <div>
+                <Input
+                  type="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  className="bg-card border-border focus:border-primary"
+                />
+              </div>
+              <div>
+                <Textarea
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                  rows={6}
+                  className="bg-card border-border focus:border-primary resize-none"
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90"
+              >
+                Send Message
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
