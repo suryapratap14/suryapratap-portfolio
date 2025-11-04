@@ -69,12 +69,12 @@ const Hero = () => {
         </div>
 
         <div className="relative animate-slide-in-right">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl rounded-full" />
-          <div className="relative rounded-2xl overflow-hidden border border-primary/20">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl" />
+          <div className="relative aspect-square overflow-hidden border-2 border-primary/40">
             <img
               src={profileImage}
               alt="Surya Pratap Mallick"
-              className="w-full h-auto object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
