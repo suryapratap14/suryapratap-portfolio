@@ -36,9 +36,15 @@ const Hero = () => {
             >
               Get in Touch
             </Button>
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              <Download className="mr-2 h-4 w-4" />
-              Download CV
+            <Button 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              asChild
+            >
+              <a href="/SURYA_PRATAP_MALLICK_Resume.pdf" download>
+                <Download className="mr-2 h-4 w-4" />
+                Download CV
+              </a>
             </Button>
           </div>
 
@@ -68,14 +74,16 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="relative animate-slide-in-right">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl" />
-          <div className="relative aspect-[3/4] overflow-hidden border-2 border-primary/40">
-            <img
-              src={profileImage}
-              alt="Surya Pratap Mallick"
-              className="w-full h-full object-cover"
-            />
+        <div className="relative animate-slide-in-right flex justify-center md:justify-end">
+          <div className="relative w-full max-w-sm">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl" />
+            <div className="relative aspect-[3/4] overflow-hidden border-2 border-primary/40">
+              <img
+                src={profileImage}
+                alt="Surya Pratap Mallick"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>

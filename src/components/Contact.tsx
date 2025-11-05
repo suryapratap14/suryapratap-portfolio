@@ -86,14 +86,14 @@ const Contact = () => {
           <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-4" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="h-full flex flex-col">
             <h3 className="text-2xl font-serif font-semibold mb-6">Let's Connect</h3>
             <p className="text-muted-foreground mb-8">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-4 flex-1">
               {contactInfo.map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -104,12 +104,12 @@ const Contact = () => {
                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-primary/5 transition-all group"
                   >
-                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all">
+                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-all flex-shrink-0">
                       <Icon className="h-5 w-5 text-primary" />
                     </div>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <p className="text-sm text-muted-foreground">{item.label}</p>
-                      <p className="font-medium">{item.value}</p>
+                      <p className="font-medium break-words">{item.value}</p>
                     </div>
                   </a>
                 );
@@ -117,7 +117,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div>
+          <div className="h-full">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Input
