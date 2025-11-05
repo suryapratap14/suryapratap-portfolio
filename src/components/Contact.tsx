@@ -86,14 +86,14 @@ const Contact = () => {
           <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-4" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="h-full flex flex-col">
+        <div className="grid md:grid-cols-2 gap-12 items-stretch">
+          <div className="flex flex-col">
             <h3 className="text-2xl font-serif font-semibold mb-6">Let's Connect</h3>
             <p className="text-muted-foreground mb-8">
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
 
-            <div className="space-y-4 flex-1">
+            <div className="space-y-4 flex-1 flex flex-col justify-center">
               {contactInfo.map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -117,8 +117,8 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="h-full">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="flex flex-col">
+            <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col justify-center">
               <div>
                 <Input
                   placeholder="Your Name"
@@ -140,15 +140,14 @@ const Contact = () => {
                   className="bg-card border-border focus:border-primary"
                 />
               </div>
-              <div>
+              <div className="flex-1 flex flex-col">
                 <Textarea
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
-                  rows={6}
                   disabled={isLoading}
-                  className="bg-card border-border focus:border-primary resize-none"
+                  className="bg-card border-border focus:border-primary resize-none flex-1 min-h-[150px]"
                 />
               </div>
               <Button
