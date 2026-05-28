@@ -25,7 +25,7 @@ const Experience = () => {
       degree: "Master of Computer Applications (MCA)",
       institution: "The Oxford College of Science, Bangalore University",
       duration: "Ongoing - Expected Nov 2025",
-      cgpa: "6.68 CGPA (4th Semester)",
+      cgpa: "7.34 CGPA (Latest Semester)",
       type: "education"
     },
     {

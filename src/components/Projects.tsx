@@ -15,12 +15,12 @@ const Projects = () => {
       live: "#"
     },
     {
-      title: "MERN Estate Project",
+      title: "Modern Real Estate Marketplace",
       description: "Real-estate management system with property listings, search filters, and role-based authentication. Developed REST APIs for property management and secure JWT-based login.",
       tech: ["React.js", "Node.js", "Express", "MongoDB"],
       image: estateImg,
       github: "#",
-      live: "#"
+      live: "https://mern-estate-main-orcin.vercel.app/"
     },
     {
       title: "Pharmacy Inventory Management",
